@@ -22,13 +22,35 @@ function App() {
   const [teamMemberList, setTeamMemberList] = useState(initialTeamMemberList);
   const [teamMemberForm, setTeamMemberForm] = useState(initialTeamMemberForm);
 
-  const handleChange = e => {
-    setTeamMemberForm({
-     ...teamMemberForm,
-     [e.target.id]: e.target.value
-    });
-    };
+  // const handleChange = e => {
+  //   setTeamMemberForm({
+  //    ...teamMemberForm,
+  //    [e.target.id]: e.target.value
+  //   });
+  //   };
  
+
+  const onNameChange = e => {
+    setTeamMemberForm({
+      name: e.target.value,
+      email: teamMemberForm.email,
+      role: teamMemberForm.role,
+    })
+  }
+  const onEmailChange = e => {
+    setTeamMemberForm({
+      name: teamMemberForm.name,
+      email: e.target.value,
+      role: teamMemberForm.role,
+    })
+  }
+  const onRoleChange = e => {
+    setTeamMemberForm({
+      name: teamMemberForm.name,
+      email: teamMemberForm.email,
+      role: e.target.value,
+    })
+  }
 
 
     const onFormSubmit = e => { 
@@ -49,7 +71,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Form 
-        handleChange={handleChange}
+        onNameChange={onNameChange}
+        onEmailChange={onEmailChange}
+        onRoleChange={onRoleChange}
         onFormSubmit={onFormSubmit}
         teamMemberForm={teamMemberForm}
         />
