@@ -4,9 +4,8 @@ import uuid from 'uuid';
 import Form from './Form';
 
 const initialTeamMemberList = [
-  { id: uuid(), name: 'gabe', age: 42 },
-  { id: uuid(), name: 'luke', age: 22 },
-  { id: uuid(), name: 'josh', age: 52 },
+  {id:uuid(), name: 'gabe', email:'placeholder@yahoo.com', role: 'instructor'}
+
 ];
 
 const initialTeamMemberForm = {
@@ -15,16 +14,47 @@ const initialTeamMemberForm = {
   role : '',
 };
 
+
 function App() {
-  const [teamMember, setTeamMember] = useState(initialTeamMemberList);
+  const [teamMemberList, setTeamMemberList] = useState(initialTeamMemberList);
   const [teamMemberForm, setTeamMemberForm] = useState(initialTeamMemberForm);
 
+  // const handleChange = e => {
+  //   setTeamMemberForm({
+  //    ...teamMemberForm,
+  //    [e.target.id]: e.target.value
+  //   });
+  //   };
+  const onNameChange = e => {
+    // we have the new value for the name input inside e.target.value
+    teamMemberForm({
+      name: e.target.value,
+      email: friendForm.email,
+    });
+  };
+
+
+    const onFormSubmit = e => { 
+      e.preventDefault();
+      const newTeamMember = {
+        id: uuid(),
+        name: teamMemberForm.name,
+        age: teamMemberForm.age,
+      };
+      const newteamMemberList = teamMemberList.concat(newTeamMember);
+      setTeamMemberList(newteamMemberList);
+      setTeamMemberForm(initialTeamMemberForm);
+    };
 
 
   return (
     <div className="App">
       <header className="App-header">
-        <Form />
+        <Form 
+        handleChange={handleChange}
+        onFormSubmit={onFormSubmit}
+        teamMemberForm={teamMemberForm}
+        />
       </header>
     </div>
   );

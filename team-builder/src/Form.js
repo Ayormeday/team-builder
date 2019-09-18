@@ -1,30 +1,39 @@
-import React from 'react';
+import React from "react";
 
+function Form(props) {
+  const { handleChange, onFormSubmit } = props;
+  const { name, email, role } = props.teamMemberForm;
 
-
-function Form (props){
-    const { name, email, role } = props
-
-
-
-    return (
+  return (
     <form>
-        <label htmlFor='nameInput'>Name</label>
-        <input value={name} id='nameInput' type='text' placeholder='Name'/>
-        
-        <label htmlFor='emailInput'>Email</label>
-        <input value={email} id='emailInput' type='email' placeholder='Email'/>
+      <label htmlFor="nameInput">Name</label>
+      <input 
+        value={name} 
+        id="nameInput" 
+        type="text" 
+        placeholder="Name"
+        onChange={handleChange}
+         />
 
-        <label htmlFor='roleInput'>Role</label>
-        <input value={role} id='roleInput' type= 'text' placeholder='Role'/>
+      <label htmlFor="emailInput">Email</label>
+      <input 
+        value={email} 
+        id="emailInput" 
+        type="email" 
+        placeholder="Email" 
+        onChange={handleChange}/>
 
-        <button disabled='false'>
+      <label htmlFor="roleInput">Role</label>
+      <input value={role} id="roleInput" type="text" placeholder="Role" onChange={handleChange}/>
+
+      <button 
+        disabled={false}
+        onClick={onFormSubmit}
+        >
             Submit
         </button>
-      
     </form>
-
-    );
+  );
 }
 
 export default Form;
