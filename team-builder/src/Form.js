@@ -24,7 +24,12 @@ function Form(props) {
         onChange={handleChange}/>
 
       <label htmlFor="roleInput">Role</label>
-      <input value={role} id="roleInput" type="text" placeholder="Role" onChange={handleChange}/>
+      <input 
+        value={role} 
+        id="roleInput" 
+        type="text" 
+        placeholder="Role" 
+        onChange={handleChange}/>
 
       <button 
         disabled={false}

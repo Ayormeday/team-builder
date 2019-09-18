@@ -3,8 +3,11 @@ import './App.css';
 import uuid from 'uuid';
 import Form from './Form';
 
+
 const initialTeamMemberList = [
-  {id:uuid(), name: 'gabe', email:'placeholder@yahoo.com', role: 'instructor'}
+  { id: uuid(), name: 'gabe', email:'a@yahoo.com', role: 'Full stack dev'},
+  { id: uuid(), name: 'luke', email: 'b@getMaxListeners.com', role: 'Full stack dev'},
+  { id: uuid(), name: 'josh', email: 'c@yahoo.com', role: 'Full stack dev'},
 
 ];
 
@@ -19,19 +22,13 @@ function App() {
   const [teamMemberList, setTeamMemberList] = useState(initialTeamMemberList);
   const [teamMemberForm, setTeamMemberForm] = useState(initialTeamMemberForm);
 
-  // const handleChange = e => {
-  //   setTeamMemberForm({
-  //    ...teamMemberForm,
-  //    [e.target.id]: e.target.value
-  //   });
-  //   };
-  const onNameChange = e => {
-    // we have the new value for the name input inside e.target.value
-    teamMemberForm({
-      name: e.target.value,
-      email: friendForm.email,
+  const handleChange = e => {
+    setTeamMemberForm({
+     ...teamMemberForm,
+     [e.target.id]: e.target.value
     });
-  };
+    };
+ 
 
 
     const onFormSubmit = e => { 
@@ -39,7 +36,8 @@ function App() {
       const newTeamMember = {
         id: uuid(),
         name: teamMemberForm.name,
-        age: teamMemberForm.age,
+        email: teamMemberForm.email,
+        role: teamMemberForm.role
       };
       const newteamMemberList = teamMemberList.concat(newTeamMember);
       setTeamMemberList(newteamMemberList);
