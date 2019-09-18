@@ -53,6 +53,11 @@ function App() {
         onFormSubmit={onFormSubmit}
         teamMemberForm={teamMemberForm}
         />
+        {/* {
+        teamMemberList.map(member => {
+          <h5 key={member.id}> {member.name} {member.email} {member.role}</h5>
+        })
+        } */}
       </header>
     </div>
   );
