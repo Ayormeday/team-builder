@@ -1,38 +1,47 @@
 import React from "react";
+import styled from "styled-components";
 
 function Form(props) {
   const { handleChange, onFormSubmit } = props;
   const { name, email, role } = props.teamMemberForm;
+  const isDisabled = () => {
+    if (!name || !email || !role){
+        return true;
+    }
+    return false;
+  };
 
   return (
     <form>
       <label htmlFor="nameInput">Name</label>
       <input 
         value={name} 
+        onChange={handleChange}
         id="nameInput" 
         type="text" 
         placeholder="Name"
-        onChange={handleChange}
          />
 
       <label htmlFor="emailInput">Email</label>
       <input 
         value={email} 
+        onChange={handleChange}
         id="emailInput" 
         type="email" 
         placeholder="Email" 
-        onChange={handleChange}/>
+        />
 
       <label htmlFor="roleInput">Role</label>
       <input 
         value={role} 
+        onChange={handleChange}
         id="roleInput" 
         type="text" 
         placeholder="Role" 
-        onChange={handleChange}/>
+        />
 
       <button 
-        disabled={false}
+        disabled={isDisabled()}
         onClick={onFormSubmit}
         >
             Submit
