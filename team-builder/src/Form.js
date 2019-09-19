@@ -3,7 +3,7 @@ import React from "react";
 
 
 function Form(props) {
-  const { onNameChange, onEmailChange, onRoleChange, onFormSubmit } = props;
+  const { handleChange, onFormSubmit } = props;
   const { name, email, role } = props.teamMemberForm;
   const isDisabled = () => {
     if (!name || !email || !role){
@@ -17,8 +17,8 @@ function Form(props) {
       <label htmlFor="nameInput">Name</label>
       <input 
         value={name} 
-        onChange={onNameChange}
-        id="nameInput" 
+        onChange={handleChange}
+        id="name" 
         type="text" 
         placeholder="Name"
          />
@@ -26,8 +26,8 @@ function Form(props) {
       <label htmlFor="emailInput">Email</label>
       <input 
         value={email} 
-        onChange={onEmailChange}
-        id="emailInput" 
+        onChange={handleChange}
+        id="email" 
         type="email" 
         placeholder="Email" 
         />
@@ -35,8 +35,8 @@ function Form(props) {
       <label htmlFor="roleInput">Role</label>
       <input 
         value={role} 
-        onChange={onRoleChange}
-        id="roleInput" 
+        onChange={handleChange}
+        id="role" 
         type="text" 
         placeholder="Role" 
         />

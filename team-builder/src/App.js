@@ -24,34 +24,34 @@ function App() {
   const [teamMemberList, setTeamMemberList] = useState(initialTeamMemberList);
   const [teamMemberForm, setTeamMemberForm] = useState(initialTeamMemberForm);
 
-  // const handleChange = e => {
-  //   setTeamMemberForm({
-  //    ...teamMemberForm,
-  //    [e.target.id]: e.target.value
-  //   });
-  //   };
+  const handleChange = e => {
+    setTeamMemberForm({
+     ...teamMemberForm,
+     [e.target.id]: e.target.value
+    });
+    };
 
-  const onNameChange = e => {
-    setTeamMemberForm({
-      name: e.target.value,
-      email: teamMemberForm.email,
-      role: teamMemberForm.role
-    });
-  };
-  const onEmailChange = e => {
-    setTeamMemberForm({
-      name: teamMemberForm.name,
-      email: e.target.value,
-      role: teamMemberForm.role
-    });
-  };
-  const onRoleChange = e => {
-    setTeamMemberForm({
-      name: teamMemberForm.name,
-      email: teamMemberForm.email,
-      role: e.target.value
-    });
-  };
+  // const onNameChange = e => {
+  //   setTeamMemberForm({
+  //     name: e.target.value,
+  //     email: teamMemberForm.email,
+  //     role: teamMemberForm.role
+  //   });
+  // };
+  // const onEmailChange = e => {
+  //   setTeamMemberForm({
+  //     name: teamMemberForm.name,
+  //     email: e.target.value,
+  //     role: teamMemberForm.role
+  //   });
+  // };
+  // const onRoleChange = e => {
+  //   setTeamMemberForm({
+  //     name: teamMemberForm.name,
+  //     email: teamMemberForm.email,
+  //     role: e.target.value
+  //   });
+  // };
 
   const onFormSubmit = e => {
     e.preventDefault();
@@ -69,9 +69,7 @@ function App() {
   return (
     <div className="App">
       <Form
-        onNameChange={onNameChange}
-        onEmailChange={onEmailChange}
-        onRoleChange={onRoleChange}
+        handleChange={handleChange}
         onFormSubmit={onFormSubmit}
         teamMemberForm={teamMemberForm}
       />
